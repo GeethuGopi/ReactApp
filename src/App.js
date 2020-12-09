@@ -1,14 +1,15 @@
-import logo from './logo.svg';
-import Hello from './Components/Hello';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
+import React from "react";
+//import logo from './logo.svg';
+//import Hello from './Components/Hello';
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <div>
-    {/*<Hello city='Auckland' />*/}
-    <Header />
-    <Footer />
+      <Header />
+      {/*<Hello city='Auckland' />*/}
+      <Footer />
     </div>
   );
 }
