@@ -5,7 +5,11 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor:{
+        'black-trans-70' : 'rgba(0,0,0,0.7)'
+      }
+    },
   },
   variants: {},
   plugins: [],
