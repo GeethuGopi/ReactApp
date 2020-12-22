@@ -67,17 +67,17 @@ const Navigation = () => {
                             <ul>
                                 
                                     <li>
-                                        <Link className="text-blue-400" to="/">Home</Link>
+                                        <Link className="text-blue-400" to="/" onClick={()=>setDisplayMenu(false)}>Home</Link>
                                     </li>
                                 
                                 
                                     <li>
-                                        <Link className="text-blue-400" to="/about">About
+                                        <Link className="text-blue-400" to="/about" onClick={()=>setDisplayMenu(false)}>About
                                     </Link></li>
                                  
                                  
                                     <li>
-                                        <Link className="text-blue-400" to="/contact">Contact
+                                        <Link className="text-blue-400" to="/contact" onClick={()=>setDisplayMenu(false)}>Contact
                                     </Link></li>
                                  
                         </ul>
