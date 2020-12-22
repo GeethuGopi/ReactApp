@@ -2,15 +2,22 @@ import React,{useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faBars} from "@fortawesome/free-solid-svg-icons"
 import {useTransition, animated} from 'react-spring'
+import {Link} from 'react-router-dom';
 
 const Navigation = () => {
     const [displayMenu,setDisplayMenu] = useState(false)
 
-    const transitions = useTransition(displayMenu, null, { // given animation for nav using react-spring library
-        from: { position: 'absolute', opacity: 0 },
-        enter: { opacity: 1 },
-        leave: { opacity: 0 },
+    const menuTransitions = useTransition(displayMenu, null, { // given animation for nav using react-spring library
+        from: { opacity: 0, transform: 'translateY(-100%)' },
+        enter: { opacity: 1, transform: 'translateY(0%)' },
+        leave: { opacity: 0, transform: 'translateY(-100%)' },
         })
+
+        const maskTransitions = useTransition(displayMenu, null, { // given animation for nav using react-spring library
+            from: { position: 'absolute', opacity: 0 },
+            enter: { opacity: 1 },
+            leave: { opacity: 0 },
+            })
     let menuItems; 
     let menuMask;
 
@@ -42,8 +49,39 @@ const Navigation = () => {
                 <FontAwesomeIcon icon={faBars} className="text-lg" 
                     onClick={()=>setDisplayMenu(!displayMenu)}/>
 
-                    {transitions.map(({ item, key, props }) =>
-                    item && <animated.div key={key} style={props}>✌️</animated.div> //animation using react-spring
+                    {maskTransitions.map(({ item, key, props }) =>
+                    item && <animated.div key={key} style={props} className="bg-black-trans-70 fixed top-0 left-0 w-full h-full z-20 bg-black fixed top-0 left-0 w-full h-full z-20"
+                    onClick={()=>setDisplayMenu(false)}
+                        >
+
+                        <span className="text-white text-lg cursor-pointer absolute top-0 right-0 p-4"
+                            onClick={()=>setDisplayMenu(false)}
+                            >X</span>
+                            </animated.div> //animation using react-spring
+                    )}
+
+                
+
+                    {menuTransitions.map(({ item, key, props }) =>
+                    item && <animated.div key={key} style={props} className="fixed top-0 left-0 bg-white w-6/12 h-full shadow z-30 list-none">
+                            <ul>
+                                
+                                    <li>
+                                        <Link className="text-blue-400" to="/" onClick={()=>setDisplayMenu(false)}>Home</Link>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <Link className="text-blue-400" to="/about" onClick={()=>setDisplayMenu(false)}>About
+                                    </Link></li>
+                                 
+                                 
+                                    <li>
+                                        <Link className="text-blue-400" to="/contact" onClick={()=>setDisplayMenu(false)}>Contact
+                                    </Link></li>
+                                 
+                        </ul>
+                            </animated.div> //animation using react-spring
                     )}
             </span>
             
