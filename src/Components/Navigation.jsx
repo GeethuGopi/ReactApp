@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faBars} from "@fortawesome/free-solid-svg-icons"
 import {useTransition, animated} from 'react-spring'
+import {Link} from 'react-router-dom';
 
 const Navigation = () => {
     const [displayMenu,setDisplayMenu] = useState(false)
@@ -52,6 +53,10 @@ const Navigation = () => {
                     item && <animated.div key={key} style={props} className="bg-black-trans-70 fixed top-0 left-0 w-full h-full z-20 bg-black fixed top-0 left-0 w-full h-full z-20"
                     onClick={()=>setDisplayMenu(false)}
                         >
+
+                        <span className="text-white text-lg cursor-pointer absolute top-0 right-0 p-4"
+                            onClick={()=>setDisplayMenu(false)}
+                            >X</span>
                             </animated.div> //animation using react-spring
                     )}
 
@@ -60,9 +65,21 @@ const Navigation = () => {
                     {menuTransitions.map(({ item, key, props }) =>
                     item && <animated.div key={key} style={props} className="fixed top-0 left-0 bg-white w-6/12 h-full shadow z-30 list-none">
                             <ul>
-                                <li>Home</li>
-                                 <li>About</li>
-                                 <li>Contact</li>
+                                
+                                    <li>
+                                        <Link className="text-blue-400" to="/">Home</Link>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <Link className="text-blue-400" to="/about">About
+                                    </Link></li>
+                                 
+                                 
+                                    <li>
+                                        <Link className="text-blue-400" to="/contact">Contact
+                                    </Link></li>
+                                 
                         </ul>
                             </animated.div> //animation using react-spring
                     )}
