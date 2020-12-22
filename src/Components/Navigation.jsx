@@ -46,8 +46,9 @@ const Navigation = () => {
                     item && <animated.div key={key} style={props}>✌️</animated.div> //animation using react-spring
                     )}
             </span>
+            
             {/* {menuMask}
-    {menuItems}*/}
+                {menuItems}*/}
         </nav> 
         );
 }
