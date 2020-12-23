@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faBars} from "@fortawesome/free-solid-svg-icons"
 import {useTransition, animated} from 'react-spring'
 import {Link} from 'react-router-dom';
+import NavigationMenu from './NavigationMenu'
 
 const Navigation = () => {
     const [displayMenu,setDisplayMenu] = useState(false)
@@ -64,23 +65,7 @@ const Navigation = () => {
 
                     {menuTransitions.map(({ item, key, props }) =>
                     item && <animated.div key={key} style={props} className="fixed top-0 left-0 bg-white w-6/12 h-full shadow z-30 list-none">
-                            <ul>
-                                
-                                    <li>
-                                        <Link className="text-blue-400" to="/" onClick={()=>setDisplayMenu(false)}>Home</Link>
-                                    </li>
-                                
-                                
-                                    <li>
-                                        <Link className="text-blue-400" to="/about" onClick={()=>setDisplayMenu(false)}>About
-                                    </Link></li>
-                                 
-                                 
-                                    <li>
-                                        <Link className="text-blue-400" to="/contact" onClick={()=>setDisplayMenu(false)}>Contact
-                                    </Link></li>
-                                 
-                        </ul>
+                           <NavigationMenu closeMenu={() => setDisplayMenu(false)} />
                             </animated.div> //animation using react-spring
                     )}
             </span>
