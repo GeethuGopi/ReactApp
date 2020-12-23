@@ -2,8 +2,7 @@ import React,{useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faBars} from "@fortawesome/free-solid-svg-icons"
 import {useTransition, animated} from 'react-spring'
-import {Link} from 'react-router-dom';
-import NavigationMenu from './NavigationMenu'
+import NavigationMenus from './NavigationMenu'
 
 const Navigation = () => {
     const [displayMenu,setDisplayMenu] = useState(false)
@@ -65,7 +64,7 @@ const Navigation = () => {
 
                     {menuTransitions.map(({ item, key, props }) =>
                     item && <animated.div key={key} style={props} className="fixed top-0 left-0 bg-white w-6/12 h-full shadow z-30 list-none">
-                           <NavigationMenu closeMenu={() => setDisplayMenu(false)} />
+                           <NavigationMenus closeMenu={() => setDisplayMenu(false)} />
                             </animated.div> //animation using react-spring
                     )}
             </span>
