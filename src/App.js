@@ -4,6 +4,9 @@ import React from "react";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Home from "./Views/Home";
+import About from "./Views/About";
+import Contact from "./Views/Contact";
 
 function App() {
   return (
@@ -15,13 +18,13 @@ function App() {
      
       <Switch>
         <Route  exact path="/">
-        <h1>This is my home page</h1>
+          <Home />
         </Route>
         <Route path="/about">
-        <h1>This is my about page</h1>
+          <About />
         </Route>
         <Route path="/contact">
-        <h1>This is my contact page</h1>
+          <Contact />
         </Route>
       </Switch>
       </Router>
